@@ -65,14 +65,19 @@ export default function Main({ navigation }) {
     const { latitude, longitude } = currentRegion;
 
     const response = await api.get("/search", {
-      params: {
-        latitude,
-        longitude,
-        techs
-      }
-    });
+        params: {
+          latitude,
+          longitude,
+          techs
+        }
+      });
+
+    console.log(response.data);      
 
     setDevs(response.data);
+
+    console.log(devs);
+
     setupWebsocket();
   }
 
